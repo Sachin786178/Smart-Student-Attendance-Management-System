@@ -1,0 +1,29 @@
+erDiagram
+    USERS {
+        int id PK
+        string username UK
+        string password_hash
+        string full_name
+    }
+    STUDENTS {
+        int id PK
+        string roll_no UK
+        string full_name
+        string email
+        string course
+        string semester
+    }
+    SUBJECTS {
+        int id PK
+        string subject_code UK
+        string subject_name
+    }
+    ATTENDANCE {
+        int id PK
+        int student_id FK
+        int subject_id FK
+        date attendance_date
+        string status
+    }
+    STUDENTS ||--o{ ATTENDANCE : has
+    SUBJECTS ||--o{ ATTENDANCE : records
